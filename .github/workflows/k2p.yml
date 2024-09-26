@@ -1,5 +1,4 @@
 on:
-  workflow_dispatch:
   push:
     branches: 
       - k2p
@@ -30,9 +29,9 @@ jobs:
           sed -i 's/found_app_smartdns = 1/found_app_smartdns = 0/' user/httpd/web_ex.c
 
           # k2p
-          wget https://raw.githubusercontent.com/chen-jianfu/v2ray-padavan-doh/refs/heads/master/E8820V2.config -O configs/templates/E8820V2.config
-          fakeroot ./build_firmware_modify E8820V2
-          mv /opt/rt-n56u/trunk/images/*.trx /opt/bin/E8820V2.trx
+          wget https://raw.githubusercontent.com/felix-fly/v2ray-padavan-doh/master/k2p.config -O configs/templates/K2P.config
+          fakeroot ./build_firmware_modify K2P
+          mv /opt/rt-n56u/trunk/images/*.trx /opt/bin/k2p.trx
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
